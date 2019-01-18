@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MaterijaliFragment"
+    android:layout_margin="16dp"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+  <LinearLayout
+      android:id="@+id/cmbLayout"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:orientation="horizontal"
+      >
+    <Spinner
+      android:id="@+id/cmbRazred"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+        android:entries="@array/razrediArray"
+        />
+
+    <Spinner
+        android:layout_marginLeft="8dp"
+        android:id="@+id/cmbPredmet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/cmbRazred"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/predmetiArray"
+        />
+  </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvMaterijali"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@+id/cmbLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+
+        ></ListView>
+
+    <TextView
+        android:id="@+id/txtPreporuka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/green"
+        android:text="Preporučujemo..."
+        android:layout_below="@id/lvMaterijali"
+        android:layout_marginTop="16dp"
+        />
+
+    <ListView
+        android:id="@+id/lvPreporuka"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@+id/txtPreporuka"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        ></ListView>
+
+
+
+
+
+
+</RelativeLayout>

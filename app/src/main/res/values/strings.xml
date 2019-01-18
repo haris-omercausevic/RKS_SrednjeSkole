@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Srednje škole</string>
+    <string name="ApiBaseUrl">http://10.10.10.50/api/</string>
+    <string name="ApiRoot">http://10.10.10.50/</string>
+
+    <string name="AuthTokenKey">authToken</string>
+    <string name="UsernameKey">username</string>
+    <string name="FirstnameKey">firstname</string>
+    <string name="LastnameKey">eastname</string>
+    <string name="EmailKey">email</string>
+    <string name="PasswordKey">password</string>
+    <string name="RazrediKey">razredi</string>
+    <string name="RazrediBrojcanoKey">razrediBrojcano</string>
+
+
+    <string name="AuthTokenPreferencesFile">authTokenPreferences</string>
+
+    <!-- Text greški -->
+    <string name="ErrMsgInvalidPassword">Lozinka nije validna.</string>
+    <string name="ErrMsgUsernameOrEmailReq">Korisničko ime/email je obavezan</string>
+    <string name="ErrMsgFriendly">Došlo je do greške, pokušajte ponovo.</string>
+    <string name="ErrMsgNoInternetConnection">Za ovu akciju je potrebna internet konekcija.</string>
+    <string name="ErrMsgAccountNotActive">Vaš korisnički račun je deaktiviran.</string>
+    <string name="ErrMsgWrongUsernameOrPassword">Pogrešno korisničko ime ili lozinka.</string>
+    <string name="ErrMsgActivationCodeNotValid">Aktivacijski kod nije validan.</string>
+    <string name="ErrMsgApiFailure">Nije moguće uspostaviti komunikaciju sa serverom, molomo pokušajte kasnije.</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_ocjene">Ocjene</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Postavke</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_glavni">GlavniActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">SrednjeSkoleApp</string>
+    <string name="nav_header_subtitle">haris@edu.fit.ba</string>
+    <string name="nav_header_desc">Navigation header</string>
+</resources>

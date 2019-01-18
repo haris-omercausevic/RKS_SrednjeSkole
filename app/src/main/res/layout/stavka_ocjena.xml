@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtFirstLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FirstLine"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/txtSecondLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtFirstLine"
+        android:text="Second Line"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/txtThirdLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtSecondLine"
+        android:text="Second Line"
+        android:layout_marginTop="8dp"
+        />
+
+</RelativeLayout>

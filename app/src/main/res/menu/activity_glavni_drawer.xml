@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_obavijesti"
+            android:icon="@drawable/newspaper"
+            android:title="Obavijesti" />
+        <item
+            android:id="@+id/nav_materijali"
+            android:icon="@drawable/notebook"
+            android:title="Materijali" />
+        <item
+            android:id="@+id/nav_ocjene"
+            android:icon="@drawable/grades"
+            android:title="Ocjene" />
+        <item
+            android:id="@+id/nav_podaci"
+            android:icon="@drawable/resume"
+            android:title="Moji podaci" />
+    </group>
+
+    <item android:title="Sesija">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@android:drawable/ic_lock_power_off"
+                android:title="Odjava" />
+        </menu>
+    </item>
+
+</menu>

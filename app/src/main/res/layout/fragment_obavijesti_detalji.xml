@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ObavijestiDetaljiFragment"
+    android:padding="16dp"
+    >
+
+    <TextView
+        android:id="@+id/txtNaslovObavijesti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearObjavaDetails"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNaslovObavijesti"
+        android:layout_marginBottom="16dp"
+        >
+        <TextView
+            android:id="@+id/txtObjavio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:id="@+id/txtDatumObjave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtTekstObavijesti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text=""
+        android:layout_below="@+id/linearObjavaDetails"
+        />
+
+
+</RelativeLayout>
