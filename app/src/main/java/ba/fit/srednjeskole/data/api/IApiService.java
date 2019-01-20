@@ -62,4 +62,7 @@ public interface IApiService {
 
     @GET("Autentifikacija/logout/{token}")
     Completable Logout (@Query("token") String token);
+
+    @GET("MaterijaliOcjene/IsOcijenjeno/{materijalId}")
+    Call<String> GetMaterijalOcjenaIsOcijenjeno(@Path("materijalId") int materijalId);
 }

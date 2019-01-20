@@ -1,4 +1,4 @@
-#Fri Jan 18 13:57:41 CET 2019
-base.0=F\:\\MEGA\\MEGAsync X2\\RKS\\AndroidStudioProjects\\SrednjeSkole\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+#Sun Jan 20 02:18:33 CET 2019
+base.0=C\:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
 path.0=classes.dex
 renamed.0=classes.dex

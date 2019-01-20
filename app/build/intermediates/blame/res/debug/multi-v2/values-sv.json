@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\MEGA\\MEGAsync X2\\RKS\\AndroidStudioProjects\\SrednjeSkole\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sv\\values-sv.xml",
+            "outputFile": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sv\\values-sv.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Haris\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\3508be324fa95a518dd4ec6063c277c9\\res\\values-sv\\values-sv.xml",

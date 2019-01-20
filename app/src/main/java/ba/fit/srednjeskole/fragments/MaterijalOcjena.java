@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class MaterijalOcjena extends Fragment {
 
     TextView txtOcjenaOpis;
     Button btnOcijeni;
+    private LinearLayout layoutStars;
 
     public MaterijalOcjena() {
         // Required empty public constructor
@@ -75,7 +77,7 @@ public class MaterijalOcjena extends Fragment {
 
         txtOcjenaOpis = view.findViewById(R.id.txtOcjenaOpis);
         btnOcijeni = view.findViewById(R.id.btnOcijeni);
-
+        layoutStars = view.findViewById(R.id.layoutStars);
         if (materijal != null) {
             txtPredmetIRazred.setText(materijal.getPredmet() + " - " + Integer.toString(materijal.getRazred()) + " razred");
             txtNazivMaterijala.setText(materijal.getNaziv());
@@ -98,10 +100,41 @@ public class MaterijalOcjena extends Fragment {
 }
 
     private void BindIsOcijenjeno() {
+        Retrofit retrofit = RetrofitBuilder.Build(MyApp.getContext());
+        IApiService client = retrofit.create(IApiService.class);
+        Call<String> call = client.GetMaterijalOcjenaIsOcijenjeno(materijal.getMaterijalId());
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful()){
+
+
+                String result = String.valueOf(response.body());
+                if(result == "true"){
+                    HideOcjeniMaterijal();
+                }
+                else{
+                    btnOcijeni.setVisibility(View.VISIBLE);
+                    txtOcjenaOpis.setText("");
+                    layoutStars.setVisibility(View.VISIBLE);
+                }
+                }
+                else{
+                    Toast.makeText(MyApp.getContext(), getString(R.string.ErrMsgFriendly), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(MyApp.getContext(), getString(R.string.ErrMsgApiFailure), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     private void HideOcjeniMaterijal() {
-
+        btnOcijeni.setVisibility(View.INVISIBLE);
+        txtOcjenaOpis.setText("Materijal je vec ocijenjen!");
+        layoutStars.setVisibility(View.INVISIBLE);
     }
 }
