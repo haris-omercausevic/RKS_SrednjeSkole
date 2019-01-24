@@ -107,8 +107,6 @@ public class MaterijalOcjena extends Fragment {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(response.isSuccessful()){
-
-
                 String result = String.valueOf(response.body());
                 if(result == "true"){
                     HideOcjeniMaterijal();

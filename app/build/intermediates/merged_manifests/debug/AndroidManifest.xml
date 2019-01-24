@@ -23,6 +23,10 @@
         android:testOnly="true"
         android:theme="@style/TemaZaApp" >
         <activity
+            android:name="ba.fit.srednjeskole.OcjeneActivity"
+            android:label="@string/title_activity_ocjene"
+            android:theme="@style/TemaZaApp.NoActionBar" />
+        <activity
             android:name="ba.fit.srednjeskole.MainActivity"
             android:theme="@style/TemaZaApp.NoActionBar" >
             <intent-filter>
@@ -37,8 +41,7 @@
             android:theme="@style/TemaZaApp.NoActionBar" />
         <activity
             android:name="ba.fit.srednjeskole.LoginActivity"
-            android:theme="@style/TemaZaApp.NoActionBar" >
-        </activity>
+            android:theme="@style/TemaZaApp.NoActionBar" />
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

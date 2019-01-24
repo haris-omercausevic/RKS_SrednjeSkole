@@ -19,4 +19,5 @@ public class MyApp extends Application {
     public static String ObavijestKey = "Obavijest";
     public static String MaterijalIDKey = "MaterijalId";
     public static String MaterijalKey = "Materijal";
+    public static String RazredGenericKey = "RazredGenericKey";
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ba.fit.srednjeskole">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".helper.MyApp"
@@ -13,6 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/TemaZaApp">
         <activity
+            android:name=".OcjeneActivity"
+            android:label="Ocjene"
+            android:theme="@style/TemaZaApp.NoActionBar"
+            ></activity>
+        <activity
             android:name=".MainActivity"
             android:theme="@style/TemaZaApp.NoActionBar">
             <intent-filter>
@@ -21,16 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".GlavniActivity"
             android:label="@string/title_activity_glavni"
-            android:theme="@style/TemaZaApp.NoActionBar"></activity>
+            android:theme="@style/TemaZaApp.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/TemaZaApp.NoActionBar">
-        </activity>
-
+            android:theme="@style/TemaZaApp.NoActionBar" />
     </application>
-
 </manifest>

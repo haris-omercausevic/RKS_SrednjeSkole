@@ -8,27 +8,23 @@
     android:padding="16dp"
     >
 
-    <TextView
-        android:id="@+id/txtUkupanProsjek"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ukupan prosjek: 3.69"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#008000"
-        android:layout_marginBottom="8dp"
-        />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:tabTextAppearance="?android:attr/textAppearanceMedium"
+            app:tabTextColor="#ffffff"
+            android:layout_height="?android:actionBarSize"
+            app:tabMode="fixed"
+            app:tabGravity="fill">
+        </android.support.design.widget.TabLayout>
 
-    <ListView
-        android:layout_marginTop="32dp"
-        android:layout_marginLeft="16dp"
-        android:id="@+id/listViewOcjene"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_below="@+id/txtUkupanProsjek"
-        android:minHeight="88dp"
-        >
 
-    </ListView>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
 </RelativeLayout>

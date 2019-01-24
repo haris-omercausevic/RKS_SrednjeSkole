@@ -914,6 +914,7 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
+dimen appbar_padding_top
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -1223,6 +1224,7 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
+id action_settings
 id action_text
 id actions
 id activity_chooser_view_content
@@ -1230,6 +1232,7 @@ id add
 id alertTitle
 id all
 id always
+id appbar
 id async
 id auto
 id barrier
@@ -1277,6 +1280,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1312,6 +1316,7 @@ id listViewOcjene
 id list_item
 id lvMaterijali
 id lvPreporuka
+id main_content
 id masked
 id media_actions
 id message
@@ -1396,7 +1401,11 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id tabItem
+id tabItem2
+id tabItem3
 id tabMode
+id tabs
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -1502,6 +1511,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_glavni
 layout activity_login
+layout activity_ocjene
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1551,6 +1561,7 @@ layout stavka_ocjena
 layout support_simple_spinner_dropdown_item
 menu activity_glavni_drawer
 menu glavni
+menu menu_ocjene
 mipmap ic_launcher
 mipmap ic_launcher_round
 string ApiBaseUrl

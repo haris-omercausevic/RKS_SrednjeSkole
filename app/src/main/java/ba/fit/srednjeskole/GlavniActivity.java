@@ -103,6 +103,7 @@ public class GlavniActivity extends AppCompatActivity
         } else if (id == R.id.nav_ocjene) {
             fragmentClass = OcjeneFragment.class;
             this.setTitle("Ocjene");
+            return true;
         } else if (id == R.id.nav_podaci) {
             fragmentClass = ObavijestiFragment.class;
             this.setTitle("Moji podaci");
