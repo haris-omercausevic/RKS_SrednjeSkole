@@ -24,6 +24,8 @@ import ba.fit.srednjeskole.model.OcjenaVM;
 import ba.fit.srednjeskole.model.Storage;
 import ba.fit.srednjeskole.model.UIKorisnik;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class OcjeneGenericFragment extends Fragment {
@@ -63,58 +65,81 @@ public class OcjeneGenericFragment extends Fragment {
         txtUkupanProsjek = view.findViewById(R.id.txtUkupanProsjek);
         if(_razred != 0){
             if(_korisnik != null)
-                ;
-                //popuniPodatke();
+                popuniPodatke(_korisnik.KorisnikId, _razred);
         }
-
-
 
         return view;
     }
 
+    private double IzracunajProsjek(List<OcjenaVM> ocjene){
+        Double sum = 0.0;
+        if(!ocjene.isEmpty()){
+            for(OcjenaVM ocjena : ocjene){
+                sum += ocjena.ProsjecnaOcjena;
+            }
+            return Math.round(sum.doubleValue()/ocjene.size() * 100.0)/100.0;
+        }
+        return sum;
+    }
+
     private void popuniPodatke(int korisnik, int razred) {
-        final List<OcjenaVM> podaci = null;
         Retrofit retrofit = RetrofitBuilder.Build(MyApp.getContext());
         IApiService client = retrofit.create(IApiService.class);
-        //Call<List<OcjenaVM>> call = client.GetOcjeneByUceniciRazredi(_korisnikId, )
-
-        adapter = new BaseAdapter() {
+        Call<List<OcjenaVM>> call = client.GetOcjeneByUcenikRazred(korisnik, razred);
+        call.enqueue(new Callback<List<OcjenaVM>>() {
             @Override
-            public int getCount() {
-                return podaci.size();
-            }
+            public void onResponse(Call<List<OcjenaVM>> call, Response<List<OcjenaVM>> response) {
+                if(response.isSuccessful()){
+                    List<OcjenaVM> podaci = response.body();
+                    txtUkupanProsjek.setText("Ukupan prosjek: " + IzracunajProsjek(podaci));
 
-            @Override
-            public Object getItem(int position) {
-                return null;
-            }
+                    adapter = new BaseAdapter() {
+                        @Override
+                        public int getCount() {
+                            return podaci.size();
+                        }
 
-            @Override
-            public long getItemId(int position) {
-                return 0;
-            }
+                        @Override
+                        public Object getItem(int position) {
+                            return podaci.get(position);
+                        }
 
-            @Override
-            public View getView(int position, View view, ViewGroup parent) {
-                if (view == null) {
-                    LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    view = inflater.inflate(R.layout.stavka_ocjena, parent, false);
+                        @Override
+                        public long getItemId(int position) {
+                            return podaci.get(position).PredajeId;
+                        }
+
+                        @Override
+                        public View getView(int position, View view, ViewGroup parent) {
+                            if (view == null) {
+                                LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                                view = inflater.inflate(R.layout.stavka_ocjena, parent, false);
+                            }
+
+                            TextView txtPredmet = view.findViewById(R.id.txtFirstLine);
+                            TextView txtProsjekPredmet = view.findViewById(R.id.txtSecondLine);
+                            TextView txtOcjene = view.findViewById(R.id.txtThirdLine);
+
+                            OcjenaVM x = podaci.get(position);
+
+                            txtPredmet.setText(x.Predmet);
+                            txtProsjekPredmet.setText("Prosjek: " + x.ProsjecnaOcjena);
+                            txtOcjene.setText("Ocjene: " + x.Ocjene);
+
+                            return view;
+                        }
+                    };
+                    lvOcjene.setAdapter(adapter);
                 }
-
-                TextView txtPredmet = view.findViewById(R.id.txtFirstLine);
-                TextView txtProsjekPredmet = view.findViewById(R.id.txtSecondLine);
-                TextView txtOcjene = view.findViewById(R.id.txtThirdLine);
-
-                OcjenaVM x = podaci.get(position);
-
-                txtPredmet.setText(x.Predmet);
-                txtProsjekPredmet.setText("Prosjek: " + x.ProsjecnaOcjena);
-                txtOcjene.setText("Ocjene: " + x.Ocjene);
-
-                return view;
             }
-        };
-        lvOcjene.setAdapter(adapter);
+
+            @Override
+            public void onFailure(Call<List<OcjenaVM>> call, Throwable t) {
+
+            }
+        });
+
+
     }
 
 }

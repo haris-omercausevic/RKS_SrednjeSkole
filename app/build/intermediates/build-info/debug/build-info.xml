@@ -5,54 +5,27 @@
     build-mode="COLD"
     density="420dpi"
     format="10"
-    ir-eligibility="R_CLASS_CHANGE"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.3.0"
-    timestamp="1548524295095"
+    timestamp="1548527547873"
     token="-7078100044282331875"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1670" />
+        duration="1549" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="91" />
+        duration="15" />
     <task
         name="verifier"
-        duration="120" />
+        duration="7" />
 
     <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
         location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
         type="SPLIT" />
 
     <build
@@ -117,9 +90,6 @@
             location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
@@ -133,6 +103,15 @@
             type="SPLIT" />
         <artifact
             location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1548527547873"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Haris\Documents\MEGAsync\RKS\AndroidStudioProjects\RKS_SrednjeSkole\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
     </build>
 

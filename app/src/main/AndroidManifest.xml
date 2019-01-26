@@ -14,11 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/TemaZaApp">
         <activity
-            android:name=".OcjeneActivity"
-            android:label="Ocjene"
-            android:theme="@style/TemaZaApp.NoActionBar"
-            ></activity>
-        <activity
             android:name=".MainActivity"
             android:theme="@style/TemaZaApp.NoActionBar">
             <intent-filter>

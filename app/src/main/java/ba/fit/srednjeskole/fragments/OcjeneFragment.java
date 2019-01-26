@@ -17,6 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,21 +94,25 @@ public class OcjeneFragment extends Fragment {
     }
 
     private void setLayout(){
-        ocjeneTabs = (FragmentTabHost) view.findViewById(R.id.razredi_tabhost);
+        ocjeneTabs = view.findViewById(R.id.razredi_tabhost);
         ocjeneTabs.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
 
-        Bundle testArg1 = new Bundle();
-        testArg1.putInt("tag", 1);
 
-        Bundle testArg2 = new Bundle();
-        testArg2.putInt("tag", 2);
+        //razredi: [4,6] -- ovo su IDovi
+        //razrediBrojcano: [1,2] -- ovo je brojcano
+        ArrayList<String> razrediTitles = new ArrayList<String>();
+        razrediTitles.add("I");
+        razrediTitles.add("II");
+        razrediTitles.add("III");
+        razrediTitles.add("IV");
 
-        Bundle testArg3 = new Bundle();
-        testArg3.putInt("tag", 3);
-
-        ocjeneTabs.addTab(ocjeneTabs.newTabSpec("t1").setIndicator("I"), OcjeneGenericFragment.class, testArg1);
-        ocjeneTabs.addTab(ocjeneTabs.newTabSpec("t2").setIndicator("II"), OcjeneGenericFragment.class, testArg2);
-        ocjeneTabs.addTab(ocjeneTabs.newTabSpec("t3").setIndicator("III"), OcjeneGenericFragment.class, testArg3);
+        for (int i = 0; i < korisnik.razredi.size(); i++)
+        {
+            Bundle tempArg = new Bundle();
+            //tempArg.putInt(String.valueOf(korisnik.razrediBrojcano.get(i)), Integer.parseInt(korisnik.razredi.get(i)));
+            tempArg.putInt(MyApp.RazredGenericKey, Integer.parseInt(korisnik.razredi.get(i)));
+            ocjeneTabs.addTab(ocjeneTabs.newTabSpec("r" + String.valueOf(i+1)).setIndicator(razrediTitles.get(i)), OcjeneGenericFragment.class, tempArg);
+        }
     }
 
 //    public class CustomFragmentPageAdapter extends FragmentPagerAdapter{
