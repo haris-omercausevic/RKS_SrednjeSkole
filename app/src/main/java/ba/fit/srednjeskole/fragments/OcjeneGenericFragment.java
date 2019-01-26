@@ -1,9 +1,11 @@
 package ba.fit.srednjeskole.fragments;
 
 
+
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+//import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,10 +37,10 @@ public class OcjeneGenericFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static OcjeneGenericFragment newInstance(String razred, String korisnik) {
+    public static OcjeneGenericFragment newInstance(int razredId) {
         OcjeneGenericFragment fragment = new OcjeneGenericFragment();
         Bundle args = new Bundle();
-        args.putString(MyApp.RazredGenericKey, razred);
+        args.putInt(MyApp.RazredGenericKey, razredId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -71,7 +73,7 @@ public class OcjeneGenericFragment extends Fragment {
     }
 
     private void popuniPodatke(int korisnik, int razred) {
-        final List<OcjenaVM> podaci = Storage.getOcjene();
+        final List<OcjenaVM> podaci = null;
         Retrofit retrofit = RetrofitBuilder.Build(MyApp.getContext());
         IApiService client = retrofit.create(IApiService.class);
         //Call<List<OcjenaVM>> call = client.GetOcjeneByUceniciRazredi(_korisnikId, )
@@ -105,9 +107,9 @@ public class OcjeneGenericFragment extends Fragment {
 
                 OcjenaVM x = podaci.get(position);
 
-                txtPredmet.setText(x.getPredmet());
-                txtProsjekPredmet.setText("Prosjek: " + x.getProsjek());
-                txtOcjene.setText("Ocjene: " + x.getOcjene());
+                txtPredmet.setText(x.Predmet);
+                txtProsjekPredmet.setText("Prosjek: " + x.ProsjecnaOcjena);
+                txtOcjene.setText("Ocjene: " + x.Ocjene);
 
                 return view;
             }

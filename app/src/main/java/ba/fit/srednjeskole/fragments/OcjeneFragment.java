@@ -1,13 +1,14 @@
 package ba.fit.srednjeskole.fragments;
 
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
+//import android.support.v4.app.Fragment;
+//import android.support.v4.app.FragmentManager;
+//import android.support.v4.app.FragmentPagerAdapter;
+//import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +21,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ba.fit.srednjeskole.R;
+import ba.fit.srednjeskole.helper.FragmentTabHost;
+import ba.fit.srednjeskole.helper.MyApp;
+import ba.fit.srednjeskole.helper.MySession;
 import ba.fit.srednjeskole.model.OcjenaVM;
 import ba.fit.srednjeskole.model.Storage;
+import ba.fit.srednjeskole.model.UIKorisnik;
 
 public class OcjeneFragment extends Fragment {
     private TabLayout tabLayout;
-    private ViewPager viewPager;
+    //private ViewPager viewPager;
+    private View view;
+    private FragmentTabHost ocjeneTabs;
+    private UIKorisnik korisnik;
 
 
     public OcjeneFragment() {
@@ -45,6 +53,8 @@ public class OcjeneFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        korisnik = MySession.readAccessSharedPreferences(MyApp.getContext());
+
         if (getArguments() != null) {
 //            mParam1 = getArguments().getString(ARG_PARAM1);
 //            mParam2 = getArguments().getString(ARG_PARAM2);
@@ -55,50 +65,84 @@ public class OcjeneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_ocjene, container, false);
+        view = inflater.inflate(R.layout.fragment_ocjene, container, false);
+        setLayout();
 
-        tabLayout = view.findViewById(R.id.tabs);
-        viewPager = view.findViewById(R.id.view_pager);
-        viewPager.setAdapter(new CustomFragmentPageAdapter(getChildFragmentManager()));
-        tabLayout.setupWithViewPager(viewPager);
+//        mTabHost = (FragmentTabHost) view.findViewById(R.id.tabhost);
+//        mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.mjestoZaTabs);
+//
+//        //add each tab
+//        mTabHost.addTab(mTabHost.newTabSpec("first").setIndicator("first"), MaterijalOcjena.class, null);
+//        mTabHost.addTab(mTabHost.newTabSpec("second").setIndicator("second"), ObavijestiFragment.class, null);
+//        mTabHost.addTab(mTabHost.newTabSpec("third").setIndicator("third"), OcjeneGenericFragment.class, null);
+
+
+//        mTabHost.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                mTabHost.setCurrentTabByTag("second");
+//            }
+//        }, 5000);
+
+//        tabLayout = view.findViewById(R.id.tabs);
+//        viewPager = view.findViewById(R.id.view_pager);
+//        viewPager.setAdapter(new CustomFragmentPageAdapter(getChildFragmentManager()));
+//        tabLayout.setupWithViewPager(viewPager);
         //setupViewPager(viewPager);
         return view;
-
     }
 
-    public class CustomFragmentPageAdapter extends FragmentPagerAdapter{
-        private final String TAG = CustomFragmentPageAdapter.class.getSimpleName();
-        private final int FRAGMENT_COUNT = 4;
+    private void setLayout(){
+        ocjeneTabs = (FragmentTabHost) view.findViewById(R.id.razredi_tabhost);
+        ocjeneTabs.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
 
-        public CustomFragmentPageAdapter(FragmentManager fm) {
-            super(fm);
-        }
+        Bundle testArg1 = new Bundle();
+        testArg1.putInt("tag", 1);
 
-        @Override
-        public Fragment getItem(int i) {
-            return new OcjeneGenericFragment();
-        }
+        Bundle testArg2 = new Bundle();
+        testArg2.putInt("tag", 2);
 
-        @Override
-        public int getCount() {
-            return FRAGMENT_COUNT;
-        }
+        Bundle testArg3 = new Bundle();
+        testArg3.putInt("tag", 3);
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position){
-                case 0:
-                    return "I";
-                case 1:
-                    return "II";
-                case 2:
-                    return "III";
-                case 3:
-                    return "IV";
-            }
-            return null;
-        }
+        ocjeneTabs.addTab(ocjeneTabs.newTabSpec("t1").setIndicator("I"), OcjeneGenericFragment.class, testArg1);
+        ocjeneTabs.addTab(ocjeneTabs.newTabSpec("t2").setIndicator("II"), OcjeneGenericFragment.class, testArg2);
+        ocjeneTabs.addTab(ocjeneTabs.newTabSpec("t3").setIndicator("III"), OcjeneGenericFragment.class, testArg3);
     }
+
+//    public class CustomFragmentPageAdapter extends FragmentPagerAdapter{
+//        private final String TAG = CustomFragmentPageAdapter.class.getSimpleName();
+//        private final int FRAGMENT_COUNT = 4;
+//
+//        public CustomFragmentPageAdapter(FragmentManager fm) {
+//            super(fm);
+//        }
+//
+//        @Override
+//        public Fragment getItem(int i) {
+//            return new OcjeneGenericFragment();
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return FRAGMENT_COUNT;
+//        }
+//
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            switch (position){
+//                case 0:
+//                    return "I";
+//                case 1:
+//                    return "II";
+//                case 2:
+//                    return "III";
+//                case 3:
+//                    return "IV";
+//            }
+//            return null;
+//        }
+//    }
 
 
 

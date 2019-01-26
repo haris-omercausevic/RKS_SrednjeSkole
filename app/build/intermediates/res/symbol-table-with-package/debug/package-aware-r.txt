@@ -1224,7 +1224,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
 id action_text
 id actions
 id activity_chooser_view_content
@@ -1232,7 +1231,6 @@ id add
 id alertTitle
 id all
 id always
-id appbar
 id async
 id auto
 id barrier
@@ -1280,7 +1278,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1316,13 +1313,13 @@ id listViewOcjene
 id list_item
 id lvMaterijali
 id lvPreporuka
-id main_content
 id masked
 id media_actions
 id message
 id middle
 id mini
 id mjestoZaFragment
+id mjestoZaTabs
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
@@ -1350,6 +1347,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id razredi_tabhost
 id right
 id right_icon
 id right_side
@@ -1401,11 +1399,7 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
-id tabItem
-id tabItem2
-id tabItem3
 id tabMode
-id tabs
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -1533,6 +1527,7 @@ layout fragment_materijali
 layout fragment_obavijesti
 layout fragment_obavijesti_detalji
 layout fragment_ocjene
+layout fragment_ocjene_generic
 layout fragment_reset_password
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -1561,7 +1556,6 @@ layout stavka_ocjena
 layout support_simple_spinner_dropdown_item
 menu activity_glavni_drawer
 menu glavni
-menu menu_ocjene
 mipmap ic_launcher
 mipmap ic_launcher_round
 string ApiBaseUrl

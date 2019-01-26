@@ -25,7 +25,7 @@
         android:theme="@style/TemaZaApp" >
         <activity
             android:name="ba.fit.srednjeskole.OcjeneActivity"
-            android:label="@string/title_activity_ocjene"
+            android:label="Ocjene"
             android:theme="@style/TemaZaApp.NoActionBar" />
         <activity
             android:name="ba.fit.srednjeskole.MainActivity"

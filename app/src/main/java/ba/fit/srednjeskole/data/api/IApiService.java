@@ -6,6 +6,7 @@ import ba.fit.srednjeskole.model.LoginVM;
 import ba.fit.srednjeskole.model.MaterijalOcjenaVM;
 import ba.fit.srednjeskole.model.MaterijalVM;
 import ba.fit.srednjeskole.model.ObavijestVM;
+import ba.fit.srednjeskole.model.OcjenaVM;
 import ba.fit.srednjeskole.model.PredmetVM;
 import ba.fit.srednjeskole.model.UIKorisnik;
 import io.reactivex.Completable;
@@ -65,4 +66,8 @@ public interface IApiService {
 
     @GET("MaterijaliOcjene/IsOcijenjeno/{materijalId}")
     Call<String> GetMaterijalOcjenaIsOcijenjeno(@Path("materijalId") int materijalId);
+
+    @GET("UceniciOcjene/ByUceniciRazredi/{korisnikId}/{razredId}")
+    Call<List<OcjenaVM>> GetOcjeneByUcenikRazred(@Path("korisnikId")int korisnikId,@Path("razredId") int razredId);
+
 }

@@ -92,17 +92,17 @@ public class Storage {
 //        return posiljke;
 //    }
 
-    private static List<OcjenaVM> ocjene;
-    public static List<OcjenaVM> getOcjene() {
-        if(ocjene == null){
-            ocjene = new ArrayList<>();
-            ocjene.add(new OcjenaVM("Fizika", "3.75", "4, 4, 2, 5"));
-            ocjene.add(new OcjenaVM("Informatika", "4.00", "5, 4, 3"));
-            ocjene.add(new OcjenaVM("Matematika I", "3.67", "4, 3, 4"));
-            ocjene.add(new OcjenaVM("Matematika II", "3.33", "5, 3, 2"));
-        }
-        return ocjene;
-    }
+//    private static List<OcjenaVM> ocjene;
+//    public static List<OcjenaVM> getOcjene() {
+//        if(ocjene == null){
+//            ocjene = new ArrayList<>();
+//            ocjene.add(new OcjenaVM("Fizika", "3.75", "4, 4, 2, 5"));
+//            ocjene.add(new OcjenaVM("Informatika", "4.00", "5, 4, 3"));
+//            ocjene.add(new OcjenaVM("Matematika I", "3.67", "4, 3, 4"));
+//            ocjene.add(new OcjenaVM("Matematika II", "3.33", "5, 3, 2"));
+//        }
+//        return ocjene;
+//    }
 
 //    public static List<UIKorisnik> getKorisniciByIme(String query){
 //        List<UIKorisnik> rezultat = new ArrayList<>();
