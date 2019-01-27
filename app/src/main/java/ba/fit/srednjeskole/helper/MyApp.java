@@ -3,6 +3,8 @@ package ba.fit.srednjeskole.helper;
 import android.app.Application;
 import android.content.Context;
 
+import com.onesignal.OneSignal;
+
 import java.lang.ref.WeakReference;
 
 public class MyApp extends Application {
@@ -13,6 +15,10 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         context = new WeakReference<>(getApplicationContext());
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
     }
 
     public static String ObavijestIDKey = "ObavijestId";

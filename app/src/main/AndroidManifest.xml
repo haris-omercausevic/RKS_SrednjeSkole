@@ -13,7 +13,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/TemaZaApp">
+        android:theme="@style/TemaZaApp"
+        >
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/TemaZaApp.NoActionBar">
