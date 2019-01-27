@@ -11,7 +11,7 @@
         android:id="@+id/txtFirstLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="matematika-1-matic-kekic.pdf"
+        android:text=""
         android:textSize="16sp"
         android:textStyle="bold"
         />
@@ -21,6 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtFirstLine"
-        android:text="doc.dr Denis Mušić 06.09.2018 4.00/5.0 2 ocjena"
+        android:text=""
         />
 </RelativeLayout>

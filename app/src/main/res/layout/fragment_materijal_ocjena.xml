@@ -17,7 +17,7 @@
             android:id="@+id/txtPredmetIRazredMaterijala"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Matematika I - 1 razred"
+            android:text=""
             android:textSize="14sp"
             android:textStyle="bold"
             />
@@ -26,7 +26,7 @@
             android:id="@+id/txtNazivMaterijala"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Lekcije_iz_Matematike1.pdf"
+            android:text=""
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -36,7 +36,7 @@
             android:id="@+id/txtNastavnik"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Objavio: doc.dr. Denis Music"
+            android:text=""
             android:textSize="14sp"
             android:layout_marginTop="16dp"
             />
@@ -45,7 +45,7 @@
             android:id="@+id/txtDatum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Datum objave: 07.09.2018"
+            android:text=""
             android:textSize="14sp"
             android:layout_marginTop="16dp"
             />
@@ -54,7 +54,7 @@
             android:id="@+id/txtRating"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Rating: 4.00/5.00"
+            android:text=""
             android:textSize="14sp"
             android:layout_marginTop="16dp"
             />
@@ -63,7 +63,7 @@
             android:id="@+id/txtBrojOcjena"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Broj ocjena: 1"
+            android:text=""
             android:textSize="14sp"
             android:layout_marginTop="16dp"
             />
@@ -86,58 +86,8 @@
             android:layout_gravity="center"
             android:numStars="5"
             android:stepSize="1"
+            android:visibility="invisible"
             />
-
-        <!--<LinearLayout-->
-            <!--android:id="@+id/layoutStars"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="64dp"-->
-            <!--&gt;-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/star1"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@android:drawable/star_big_off"-->
-                <!--android:layout_weight="0.5"-->
-                <!--/>-->
-            <!--<ImageView-->
-                <!--android:id="@+id/star2"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@android:drawable/star_big_off"-->
-                <!--android:minHeight="32dp"-->
-                <!--android:layout_weight="0.5"-->
-                <!--/>-->
-            <!--<ImageView-->
-                <!--android:id="@+id/star3"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@android:drawable/star_big_off"-->
-                <!--android:layout_toRightOf="@id/star2"-->
-                <!--android:layout_weight="0.5"-->
-                <!--/>-->
-            <!--<ImageView-->
-                <!--android:id="@+id/star4"-->
-
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@android:drawable/star_big_off"-->
-                <!--android:layout_toRightOf="@id/star3"-->
-                <!--android:layout_weight="0.5"-->
-                <!--/>-->
-            <!--<ImageView-->
-                <!--android:id="@+id/star5"-->
-
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@android:drawable/star_big_off"-->
-                <!--android:layout_toRightOf="@id/star4"-->
-                <!--android:layout_weight="0.5"-->
-                <!--/>-->
-
-        <!--</LinearLayout>-->
 
         <TextView
             android:id="@+id/txtOcjenaOpis"
@@ -156,6 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="OCIJENI"
+            android:visibility="invisible"
             />
 
     </LinearLayout>

@@ -198,9 +198,7 @@ public class MaterijalOcjena extends Fragment {
                     HideOcjeniMaterijal();
                 }
                 else{
-                    btnOcijeni.setVisibility(View.VISIBLE);
-                    txtOcjenaOpis.setText("");
-                    ratingBar.setVisibility(View.VISIBLE);
+                   ShowOcjeniMaterijal();
                 }
                 }
                 else{
@@ -220,5 +218,10 @@ public class MaterijalOcjena extends Fragment {
         txtOcjenaOpis.setText("Materijal je vec ocijenjen!");
         ratingBar.setVisibility(View.INVISIBLE);
         btnOcijeni.setVisibility(View.INVISIBLE);
+    }
+    private void ShowOcjeniMaterijal() {
+        txtOcjenaOpis.setText("");
+        ratingBar.setVisibility(View.VISIBLE);
+        btnOcijeni.setVisibility(View.VISIBLE);
     }
 }

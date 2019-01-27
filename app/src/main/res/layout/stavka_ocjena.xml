@@ -7,7 +7,7 @@
         android:id="@+id/txtFirstLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FirstLine"
+        android:text=""
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtFirstLine"
-        android:text="Second Line"
+        android:text=""
         android:textStyle="bold"
         android:layout_marginTop="8dp"
         />
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtSecondLine"
-        android:text="Second Line"
+        android:text=""
         android:layout_marginTop="8dp"
         />
 

@@ -7,7 +7,6 @@
     android:layout_margin="16dp"
     >
 
-    <!-- TODO: Update blank fragment layout -->
   <LinearLayout
       android:id="@+id/cmbLayout"
       android:layout_width="wrap_content"
@@ -29,7 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/cmbRazred"
         android:layout_centerHorizontal="true"
-        android:entries="@array/predmetiArray"
         />
   </LinearLayout>
 
@@ -62,10 +60,5 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="16dp"
         ></ListView>
-
-
-
-
-
 
 </RelativeLayout>

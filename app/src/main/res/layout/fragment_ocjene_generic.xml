@@ -9,7 +9,7 @@
         android:id="@+id/txtUkupanProsjek"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ukupan prosjek: 3.71"
+        android:text="Ukupan prosjek: "
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#008000"

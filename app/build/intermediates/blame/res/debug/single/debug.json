@@ -816,6 +816,10 @@
         "source": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\src\\main\\res\\drawable\\ic_menu_share.xml"
     },
     {
+        "merged": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_profil.xml.flat",
+        "source": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\src\\main\\res\\layout\\fragment_profil.xml"
+    },
+    {
         "merged": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\Haris\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\3508be324fa95a518dd4ec6063c277c9\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
@@ -914,10 +918,6 @@
     {
         "merged": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notebook.png.flat",
         "source": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\src\\main\\res\\drawable\\notebook.png"
-    },
-    {
-        "merged": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_ocjene.xml.flat",
-        "source": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\src\\main\\res\\layout\\activity_ocjene.xml"
     },
     {
         "merged": "C:\\Users\\Haris\\Documents\\MEGAsync\\RKS\\AndroidStudioProjects\\RKS_SrednjeSkole\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",

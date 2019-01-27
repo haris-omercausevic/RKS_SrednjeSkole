@@ -22,6 +22,7 @@ import ba.fit.srednjeskole.fragments.MaterijaliFragment;
 import ba.fit.srednjeskole.fragments.ObavijestiFragment;
 import ba.fit.srednjeskole.fragments.OcjeneFragment;
 import ba.fit.srednjeskole.fragments.OcjeneGenericFragment;
+import ba.fit.srednjeskole.fragments.ProfilFragment;
 import ba.fit.srednjeskole.helper.MyFragmentUtils;
 import ba.fit.srednjeskole.helper.MySession;
 
@@ -105,7 +106,7 @@ public class GlavniActivity extends AppCompatActivity
             fragmentClass = OcjeneFragment.class;
             this.setTitle("Ocjene");
         } else if (id == R.id.nav_podaci) {
-            fragmentClass = ObavijestiFragment.class;
+            fragmentClass = ProfilFragment.class;
             this.setTitle("Moji podaci");
         }
         else if(id == R.id.nav_logout){
