@@ -49,7 +49,7 @@ public interface IApiService {
     boolean IsOcijenjeno(@Path("materijalId") int materijalId, @Path("korisnikId") int korisnikId);
 
     @POST("MaterijaliOcjene/")
-    Call<ResponseBody> OcijeniMaterijal(@Body MaterijalOcjenaVM materijalOcjenaVM);
+    Call<MaterijalOcjenaVM> OcijeniMaterijal(@Body MaterijalOcjenaVM materijalOcjenaVM);
 
     //Autentifikacija
     @POST("Autentifikacija/login")
@@ -64,8 +64,8 @@ public interface IApiService {
     @GET("Autentifikacija/logout/{token}")
     Completable Logout (@Query("token") String token);
 
-    @GET("MaterijaliOcjene/IsOcijenjeno/{materijalId}")
-    Call<String> GetMaterijalOcjenaIsOcijenjeno(@Path("materijalId") int materijalId);
+    @GET("MaterijaliOcjene/IsOcijenjeno/{materijalId}/{korisnikId}")
+    Call<String> GetMaterijalOcjenaIsOcijenjeno(@Path("materijalId") int materijalId, @Path("korisnikId") int korisnikId);
 
     @GET("UceniciOcjene/ByUceniciRazredi/{korisnikId}/{razredId}")
     Call<List<OcjenaVM>> GetOcjeneByUcenikRazred(@Path("korisnikId")int korisnikId,@Path("razredId") int razredId);

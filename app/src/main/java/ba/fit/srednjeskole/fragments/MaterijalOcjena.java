@@ -1,8 +1,13 @@
 package ba.fit.srednjeskole.fragments;
 
 
+import android.app.DownloadManager;
 import android.app.Fragment;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +15,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import ba.fit.srednjeskole.R;
 import ba.fit.srednjeskole.data.api.IApiService;
 import ba.fit.srednjeskole.helper.MyApp;
+import ba.fit.srednjeskole.helper.MySession;
 import ba.fit.srednjeskole.helper.RetrofitBuilder;
+import ba.fit.srednjeskole.model.MaterijalOcjenaVM;
 import ba.fit.srednjeskole.model.MaterijalVM;
+import ba.fit.srednjeskole.model.UIKorisnik;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +39,7 @@ import retrofit2.Retrofit;
  * create an instance of this fragment.
  */
 public class MaterijalOcjena extends Fragment {
-    private MaterijalVM materijal;
+    MaterijalVM materijal;
     TextView txtPredmetIRazred;
     TextView txtNazivMaterijala;
     TextView txtNastavnik;
@@ -41,6 +51,8 @@ public class MaterijalOcjena extends Fragment {
     TextView txtOcjenaOpis;
     Button btnOcijeni;
     private LinearLayout layoutStars;
+    private RatingBar ratingBar;
+    private UIKorisnik korisnik;
 
     public MaterijalOcjena() {
         // Required empty public constructor
@@ -59,6 +71,7 @@ public class MaterijalOcjena extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             materijal = (MaterijalVM) getArguments().getSerializable(MyApp.MaterijalKey);
+            korisnik = MySession.readAccessSharedPreferences(MyApp.getContext());
         }
     }
 
@@ -77,7 +90,9 @@ public class MaterijalOcjena extends Fragment {
 
         txtOcjenaOpis = view.findViewById(R.id.txtOcjenaOpis);
         btnOcijeni = view.findViewById(R.id.btnOcijeni);
-        layoutStars = view.findViewById(R.id.layoutStars);
+        //layoutStars = view.findViewById(R.id.layoutStars);
+        ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
+
         if (materijal != null) {
             txtPredmetIRazred.setText(materijal.getPredmet() + " - " + Integer.toString(materijal.getRazred()) + " razred");
             txtNazivMaterijala.setText(materijal.getNaziv());
@@ -89,7 +104,74 @@ public class MaterijalOcjena extends Fragment {
             imgDownloadMaterijal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getActivity(), "Downloading not yet implemented...", Toast.LENGTH_SHORT).show();
+                    Uri uri = Uri.parse(materijal.getUrl());
+
+                    DownloadManager.Request request = new DownloadManager.Request(uri);
+                    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+                    request.setTitle(materijal.getNaziv());
+
+                    request.allowScanningByMediaScanner();
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, materijal.getNaziv());
+
+                    //request.setMimeType("application/pdf");
+                    DownloadManager downloadManager = (DownloadManager) MyApp.getContext().getSystemService(Context.DOWNLOAD_SERVICE);
+                    downloadManager.enqueue(request);
+
+                    Toast.makeText(getActivity(), "Starting download...", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            btnOcijeni.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(ratingBar.getRating() == 0){
+                        Toast.makeText(getActivity(), "Ocjena ne moze biti 0", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        if(korisnik == null)
+                            return;
+
+                        MaterijalOcjenaVM materijalOcjena = new MaterijalOcjenaVM(){};
+                        materijalOcjena.Ocjena = (int)ratingBar.getRating();
+                        materijalOcjena.UcenikId = korisnik.KorisnikId;
+                        materijalOcjena.MaterijalId = materijal.MaterijalId;
+
+                        Retrofit retrofit = RetrofitBuilder.Build(MyApp.getContext());
+                        IApiService client = retrofit.create(IApiService.class);
+
+                        Call<MaterijalOcjenaVM> call = client.OcijeniMaterijal(materijalOcjena);
+                        call.enqueue(new Callback<MaterijalOcjenaVM>() {
+                            @Override
+                            public void onResponse(Call<MaterijalOcjenaVM> call, Response<MaterijalOcjenaVM> response) {
+                                if(response.isSuccessful()){
+                                    Toast.makeText(getActivity(), "Ocjena uspjesno pohranjena!", Toast.LENGTH_SHORT).show();
+                                    HideOcjeniMaterijal();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<MaterijalOcjenaVM> call, Throwable t) {
+                                Toast.makeText(MyApp.getContext(), getString(R.string.ErrMsgFriendly), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+                }
+            });
+
+
+            ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+                @Override
+                public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                    switch ((int)ratingBar.getRating()){
+                        case 1: txtOcjenaOpis.setText("Loše!");break;
+                        case 2: txtOcjenaOpis.setText("Nako!");break;
+                        case 3: txtOcjenaOpis.setText("Može proć!");break;
+                        case 4: txtOcjenaOpis.setText("Dobar!");break;
+                        case 5: txtOcjenaOpis.setText("Odličan!");break;
+                    }
                 }
             });
 
@@ -102,7 +184,11 @@ public class MaterijalOcjena extends Fragment {
     private void BindIsOcijenjeno() {
         Retrofit retrofit = RetrofitBuilder.Build(MyApp.getContext());
         IApiService client = retrofit.create(IApiService.class);
-        Call<String> call = client.GetMaterijalOcjenaIsOcijenjeno(materijal.getMaterijalId());
+
+        if(korisnik == null)
+            return;
+
+        Call<String> call = client.GetMaterijalOcjenaIsOcijenjeno(materijal.getMaterijalId(), korisnik.KorisnikId);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -114,7 +200,7 @@ public class MaterijalOcjena extends Fragment {
                 else{
                     btnOcijeni.setVisibility(View.VISIBLE);
                     txtOcjenaOpis.setText("");
-                    layoutStars.setVisibility(View.VISIBLE);
+                    ratingBar.setVisibility(View.VISIBLE);
                 }
                 }
                 else{
@@ -131,8 +217,8 @@ public class MaterijalOcjena extends Fragment {
     }
 
     private void HideOcjeniMaterijal() {
-        btnOcijeni.setVisibility(View.INVISIBLE);
         txtOcjenaOpis.setText("Materijal je vec ocijenjen!");
-        layoutStars.setVisibility(View.INVISIBLE);
+        ratingBar.setVisibility(View.INVISIBLE);
+        btnOcijeni.setVisibility(View.INVISIBLE);
     }
 }

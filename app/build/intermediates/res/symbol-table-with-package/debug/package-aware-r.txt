@@ -1302,7 +1302,6 @@ id italic
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
-id layoutStars
 id left
 id line1
 id line3
@@ -1347,6 +1346,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id ratingBar
 id razredi_tabhost
 id right
 id right_icon
@@ -1389,11 +1389,6 @@ id src_atop
 id src_in
 id src_over
 id standard
-id star1
-id star2
-id star3
-id star4
-id star5
 id start
 id status_bar_latest_event_content
 id stretch

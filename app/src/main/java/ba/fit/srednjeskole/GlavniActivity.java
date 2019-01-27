@@ -94,7 +94,6 @@ public class GlavniActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Class fragmentClass = null;
-        boolean v4 = false;
 
         if (id == R.id.nav_obavijesti) {
             fragmentClass = ObavijestiFragment.class;
@@ -118,18 +117,12 @@ public class GlavniActivity extends AppCompatActivity
         if(fragmentClass!=null)
         {
             try {
-                if(v4 == true)
-                    MyFragmentUtils.openAsReplace(this, R.id.mjestoZaFragment, (android.support.v4.app.Fragment) fragmentClass.newInstance());
-                else{
                     MyFragmentUtils.openAsReplace(this, R.id.mjestoZaFragment, (Fragment)fragmentClass.newInstance());
-                }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
-        v4 = false;
         return true;
     }
 }

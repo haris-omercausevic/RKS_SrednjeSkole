@@ -3,19 +3,19 @@ package ba.fit.srednjeskole.model;
 import java.io.Serializable;
 
 public class MaterijalVM implements Serializable {
-    private int MaterijalId;
-    private String Naziv;
-    private String Url;
-    private String BlobName;
-    private String Datum;
-    private int BrojOcjena;
-    private double Rating;
-    private int PredmetId;
-    private int NastavnikId;
-    private String nastavnik;
-    private String detalji;
-    private String Predmet;
-    private int Razred;
+    public int MaterijalId;
+    public String Naziv;
+    public String Url;
+    public String BlobName;
+    public String Datum;
+    public int BrojOcjena;
+    public double Rating;
+    public int PredmetId;
+    public int NastavnikId;
+    public String nastavnik;
+    public String detalji;
+    public String Predmet;
+    public int Razred;
 
 
     //Get & Set
